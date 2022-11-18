@@ -6,7 +6,7 @@
 /*   By: jileroux <jileroux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 14:13:08 by jileroux          #+#    #+#             */
-/*   Updated: 2022/11/17 14:46:06 by jileroux         ###   ########.fr       */
+/*   Updated: 2022/11/18 12:51:11 by jileroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	ft_check_args(int argc, char **argv)
 	int	index;
 
 	index = 1;
+
 	while (index < argc)
 	{
 		if (!ft_str_is_numeric(argv[index]))
@@ -34,10 +35,12 @@ int	ft_str_is_numeric(char *str)
 	int	i;
 
 	i = 0;
+
 	if (str[i] == '\0')
 		return (1);
 	if (ft_atoi(str) > 2147483647)
 	{
+
 		write(1, "Error value is taller than an int\n", 34);
 		return (0);
 	}
@@ -46,7 +49,7 @@ int	ft_str_is_numeric(char *str)
 		write(1, "Error value is smaller than an int\n", 35);
 		return (0);
 	}
-	if (str[i] = '-')
+	if (str[i] == '-')
 		i++;
 	while (str[i] != '\0')
 	{
@@ -69,12 +72,14 @@ int	ft_number_is_unique(int argc, char **argv)
 	i = 1;
 	j = 2;
 	count = 0;
-	while (i < argc)
+
+	while (i < argc - 1)
 	{
 		while (j < argc)
 		{
-			if (ft_strcmp(ft_itoa(ft_atoi(argv[i])),
-					ft_itoa(ft_atoi(argv[j]))) != 0)
+			//if (ft_strcmp(ft_itoa(ft_atoi(argv[i])),
+			//		ft_itoa(ft_atoi(argv[j]))) == 0)
+			if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
 				count++;
 			j++;
 			if (count >= 1)
@@ -84,8 +89,8 @@ int	ft_number_is_unique(int argc, char **argv)
 			}
 		}
 		count = 0;
-		j = i + 1;
 		i++;
+		j = i + 1;
 	}
 	return (1);
 }
