@@ -6,7 +6,7 @@
 /*   By: jileroux <jileroux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 13:15:31 by jileroux          #+#    #+#             */
-/*   Updated: 2022/11/21 13:55:44 by jileroux         ###   ########.fr       */
+/*   Updated: 2022/11/21 15:22:24 by jileroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void	ft_check(t_link **stack_a, t_link **stack_b, int fd)
 		free(line_read);
 		line_read = get_next_line(fd);
 	}
+	
 	if (ft_is_sorted((*stack_a)))
 		write(1, "OK\n", 3);
 	else

@@ -6,11 +6,11 @@
 /*   By: jileroux <jileroux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 15:48:22 by jileroux          #+#    #+#             */
-/*   Updated: 2022/11/20 15:53:43 by jileroux         ###   ########.fr       */
+/*   Updated: 2022/11/21 15:27:34 by jileroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/checker.h"
+#include "../include/get_next_line.h"
 
 int	ft_strchr(char *s)
 {

@@ -6,18 +6,17 @@
 /*   By: jileroux <jileroux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 15:48:25 by jileroux          #+#    #+#             */
-/*   Updated: 2022/11/20 16:01:21 by jileroux         ###   ########.fr       */
+/*   Updated: 2022/11/21 15:27:15 by jileroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/checker.h"
+#include "../include/get_next_line.h"
 
 char	*get_next_line(int fd)
 {
-	static char	*str_static;
+	static char	*str_static = NULL;
 	char		*str_temporary;
 
-	str_static = NULL;
 	if (fd < 0 || read(fd, &str_temporary, 0) < 0 || BUFFER_SIZE < 1)
 		return (NULL);
 	str_static = ft_read_line(fd, str_static);
