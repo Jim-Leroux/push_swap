@@ -6,7 +6,7 @@
 /*   By: jileroux <jileroux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 13:15:31 by jileroux          #+#    #+#             */
-/*   Updated: 2022/11/21 15:22:24 by jileroux         ###   ########.fr       */
+/*   Updated: 2022/11/22 09:01:05 by jileroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,39 +47,42 @@ void	ft_check(t_link **stack_a, t_link **stack_b, int fd)
 			ft_pa(stack_a, stack_b);
 		else if (ft_strcmp(line_read, "pb\n") == 0)
 			ft_push(stack_a, stack_b);
-		else if (ft_strcmp(line_read, "sa\n") == 0)
-			ft_swap(stack_a);
-		else if (ft_strcmp(line_read, "sb\n") == 0)
-			ft_swap(stack_b);
-		else
-			ft_check_part_2(stack_a, stack_b, fd, line_read);
+		else if (ft_check_part_2(stack_a, stack_b, fd, line_read) == 0)
+		{
+			free(line_read);
+			write(1, "Error wrong command\n", 20);
+			return ;
+		}
 		free(line_read);
 		line_read = get_next_line(fd);
 	}
-	
 	if (ft_is_sorted((*stack_a)))
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
 }
 
-void	ft_check_part_2(t_link **stack_a, t_link **stack_b, int fd,
-		char *line_read)
+int	ft_check_part_2(t_link **stack_a, t_link **stack_b, int fd, char *line_read)
 {
+	if (ft_strcmp(line_read, "sa\n") == 0)
+		return (ft_swap(stack_a), 1);
+	if (ft_strcmp(line_read, "sb\n") == 0)
+		return (ft_swap(stack_b), 1);
 	if (ft_strcmp(line_read, "ra\n") == 0)
-		ft_rotate_up(stack_a);
+		return (ft_rotate_up(stack_a), 1);
 	if (ft_strcmp(line_read, "rb\n") == 0)
-		ft_rotate_up(stack_b);
+		return (ft_rotate_up(stack_b), 1);
 	else if (ft_strcmp(line_read, "rra\n") == 0)
-		ft_rotate_down(stack_a);
+		return (ft_rotate_down(stack_a), 1);
 	else if (ft_strcmp(line_read, "rrb\n") == 0)
-		ft_rotate_down(stack_b);
+		return (ft_rotate_down(stack_b), 1);
 	else if (ft_strcmp(line_read, "rrr\n") == 0)
-		ft_rrr(stack_a, stack_b);
+		return (ft_rrr(stack_a, stack_b), 1);
 	else if (ft_strcmp(line_read, "rr\n") == 0)
-		ft_rr(stack_a, stack_b);
+		return (ft_rr(stack_a, stack_b), 1);
 	else if (ft_strcmp(line_read, "ss\n") == 0)
-		ft_ss(stack_a, stack_b);
+		return (ft_ss(stack_a, stack_b), 1);
+	return (0);
 }
 
 int	ft_is_sorted(t_link *stack_a)
