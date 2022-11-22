@@ -6,7 +6,7 @@
 /*   By: jileroux <jileroux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 13:15:31 by jileroux          #+#    #+#             */
-/*   Updated: 2022/11/22 09:01:05 by jileroux         ###   ########.fr       */
+/*   Updated: 2022/11/22 11:32:50 by jileroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int argc, char **argv)
 	if (!stack_a)
 		return (0);
 	if (ft_sorted_array(stack_a))
-		return (0);
+		return (write(1, "OK\n", 3), 0);
 	ft_check(&stack_a, &stack_b, fd);
 	ft_free_stack(&stack_a);
 	free(stack_a);
