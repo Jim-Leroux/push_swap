@@ -6,7 +6,7 @@
 /*   By: jileroux <jileroux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 13:15:31 by jileroux          #+#    #+#             */
-/*   Updated: 2022/11/22 11:32:50 by jileroux         ###   ########.fr       */
+/*   Updated: 2022/11/25 13:33:26 by jileroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	ft_check(t_link **stack_a, t_link **stack_b, int fd)
 		else if (ft_check_part_2(stack_a, stack_b, fd, line_read) == 0)
 		{
 			free(line_read);
-			write(1, "Error wrong command\n", 20);
+			write(2, "Error wrong command\n", 20);
 			return ;
 		}
 		free(line_read);
