@@ -6,7 +6,7 @@
 /*   By: jileroux <jileroux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 15:27:49 by jileroux          #+#    #+#             */
-/*   Updated: 2022/11/21 13:59:09 by jileroux         ###   ########.fr       */
+/*   Updated: 2022/11/25 15:33:43 by jileroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	main(int argc, char **argv)
 	else if (argc == 3)
 	{
 		ft_swap(&stack_a);
-		return (write(1, "sa\n", 3));
+		return (ft_free_stack(&stack_a), free(stack_a), write(1, "sa\n", 3));
 	}
 	ft_give_index(stack_a);
 	ft_push_swap(argc, &stack_a, &stack_b);

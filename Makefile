@@ -50,7 +50,7 @@ clean:
 	rm -rf *.o
 
 fclean: clean
-	rm -f ${NAME}
+	rm -f ${NAME} ${NAME_BONUS}
 
 re: fclean all
 

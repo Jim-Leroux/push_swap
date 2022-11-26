@@ -6,7 +6,7 @@
 /*   By: jileroux <jileroux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 13:15:31 by jileroux          #+#    #+#             */
-/*   Updated: 2022/11/25 13:33:26 by jileroux         ###   ########.fr       */
+/*   Updated: 2022/11/26 16:10:33 by jileroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,9 @@ int	main(int argc, char **argv)
 	ft_args_to_stack(&stack_a, argc, argv);
 	if (!stack_a)
 		return (0);
-	if (ft_sorted_array(stack_a))
-		return (write(1, "OK\n", 3), 0);
 	ft_check(&stack_a, &stack_b, fd);
 	ft_free_stack(&stack_a);
-	free(stack_a);
+	ft_free_stack(&stack_b);
 	return (0);
 }
 
@@ -40,7 +38,7 @@ void	ft_check(t_link **stack_a, t_link **stack_b, int fd)
 
 	while (fd)
 		fd = STDIN_FILENO;
-	line_read = get_next_line(fd);
+	line_read = get_next_line(fd, 0);
 	while (line_read != NULL)
 	{
 		if (ft_strcmp(line_read, "pa\n") == 0)
@@ -49,14 +47,15 @@ void	ft_check(t_link **stack_a, t_link **stack_b, int fd)
 			ft_push(stack_a, stack_b);
 		else if (ft_check_part_2(stack_a, stack_b, fd, line_read) == 0)
 		{
-			free(line_read);
-			write(2, "Error wrong command\n", 20);
-			return ;
+			get_next_line(fd, 1);
+			write(2, "Error\n", 7);
+			return (free(line_read));
 		}
 		free(line_read);
-		line_read = get_next_line(fd);
+		line_read = get_next_line(fd, 0);
 	}
-	if (ft_is_sorted((*stack_a)))
+	get_next_line(fd, 1);
+	if (ft_is_sorted((*stack_a), (*stack_b)))
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
@@ -85,9 +84,11 @@ int	ft_check_part_2(t_link **stack_a, t_link **stack_b, int fd, char *line_read)
 	return (0);
 }
 
-int	ft_is_sorted(t_link *stack_a)
+int	ft_is_sorted(t_link *stack_a, t_link *stack_b)
 {
-	while (stack_a->next)
+	if (stack_b)
+		return (0);
+	while (stack_a && stack_a->next)
 	{
 		if (stack_a->value < stack_a->next->value)
 			stack_a = stack_a->next;

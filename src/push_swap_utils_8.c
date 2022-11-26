@@ -6,7 +6,7 @@
 /*   By: jileroux <jileroux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 10:15:21 by jileroux          #+#    #+#             */
-/*   Updated: 2022/11/20 13:01:01 by jileroux         ###   ########.fr       */
+/*   Updated: 2022/11/26 14:33:45 by jileroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,11 @@ void	ft_free_stack(t_link **stack_a)
 {
 	t_link	*tmp;
 
-	while ((*stack_a)->next)
+	while ((*stack_a))
 	{
 		tmp = (*stack_a);
 		(*stack_a) = (*stack_a)->next;
 		free(tmp);
 	}
+	free(*stack_a);
 }

@@ -6,7 +6,7 @@
 /*   By: jileroux <jileroux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 17:55:17 by jileroux          #+#    #+#             */
-/*   Updated: 2022/11/20 13:01:55 by jileroux         ###   ########.fr       */
+/*   Updated: 2022/11/25 15:19:57 by jileroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ void	ft_rrr(t_link **stack_a, t_link **stack_b)
 
 int	ft_sorted_array(t_link *stack_a)
 {
+	t_link	*head;
+
+	head = stack_a;
 	while (stack_a->next)
 	{
 		if (stack_a->value < stack_a->next->value)
@@ -33,6 +36,8 @@ int	ft_sorted_array(t_link *stack_a)
 		else
 			return (0);
 	}
+	ft_free_stack(&head);
+	free(head);
 	return (1);
 }
 

@@ -6,7 +6,7 @@
 /*   By: jileroux <jileroux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 14:13:08 by jileroux          #+#    #+#             */
-/*   Updated: 2022/11/25 13:33:13 by jileroux         ###   ########.fr       */
+/*   Updated: 2022/11/26 13:03:52 by jileroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,12 @@ int	ft_str_is_numeric(char *str)
 		return (1);
 	if (ft_atoi(str) > 2147483647)
 	{
-		write(2, "Error value is taller than an int\n", 34);
+		write(2, "Error\n", 7);
 		return (0);
 	}
 	if (ft_atoi(str) < -2147483648)
 	{
-		write(2, "Error value is smaller than an int\n", 35);
+		write(2, "Error\n", 7);
 		return (0);
 	}
 	if (!ft_str_is_numeric_2(str))
@@ -62,7 +62,7 @@ int	ft_str_is_numeric_2(char *str)
 	{
 		if (str[i] < '0' || str[i] > '9')
 		{
-			write(2, "Error value is not a number\n", 28);
+			write(2, "Error\n", 7);
 			return (0);
 		}
 		i++;
@@ -88,7 +88,7 @@ int	ft_number_is_unique(int argc, char **argv)
 			j++;
 			if (count >= 1)
 			{
-				write(2, "Error there is a duplicate value\n", 34);
+				write(2, "Error\n", 7);
 				return (0);
 			}
 		}
