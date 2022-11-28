@@ -6,7 +6,7 @@
 /*   By: jileroux <jileroux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 14:58:26 by jileroux          #+#    #+#             */
-/*   Updated: 2022/11/20 13:00:18 by jileroux         ###   ########.fr       */
+/*   Updated: 2022/11/28 12:16:36 by jileroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	*ft_args_to_stack(t_link **stack_a, int argc, char **argv)
 
 long int	ft_atoi(const char *nptr)
 {
-	long int	i;
+	int			i;
 	long int	n;
 	long int	negative;
 

@@ -6,7 +6,7 @@
 /*   By: jileroux <jileroux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 14:13:08 by jileroux          #+#    #+#             */
-/*   Updated: 2022/11/26 13:03:52 by jileroux         ###   ########.fr       */
+/*   Updated: 2022/11/28 12:45:29 by jileroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,11 @@ int	ft_str_is_numeric(char *str)
 	i = 0;
 	if (str[i] == '\0')
 		return (1);
+	if (ft_strlen(str) > 11)
+	{
+		write(2, "Error\n", 7);
+		return (0);
+	}
 	if (ft_atoi(str) > 2147483647)
 	{
 		write(2, "Error\n", 7);

@@ -19,6 +19,8 @@ SRC_FILES	= src/main.c\
 		src/push_swap_utils_6.c\
 		src/push_swap_utils_7.c\
 		src/push_swap_utils_8.c\
+		src_bonus/get_next_line.c\
+		src_bonus/get_next_line_utils.c\
 		src/push_swap_parsing.c
 
 SRC_FILES_BONUS	= src_bonus/main.c\

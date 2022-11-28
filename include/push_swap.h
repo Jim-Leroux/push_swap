@@ -6,7 +6,7 @@
 /*   By: jileroux <jileroux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 13:30:20 by jileroux          #+#    #+#             */
-/*   Updated: 2022/11/20 11:01:15 by jileroux         ###   ########.fr       */
+/*   Updated: 2022/11/28 12:39:56 by jileroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include "../include/get_next_line.h"
 
 typedef struct s_link
 {
